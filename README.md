@@ -56,17 +56,19 @@ For completion by applicant
 
 Quick Start
 -----------
+// I choose to use Java to solve this problem type the following into the command prompt
 
-* Replace this text with instructions on how to execute your program
-* What programming language did you use? See [here](http://ideone.com/) for the supported ones.
-* Also tell us anything else the reviewer should know about your code
+javac Gibgen.java
+java Gibgen
 
+// After the code is compiled and executed enter strings into the console to test it out
 
 Coding Questions
 ----------------
 
 Question 1: "How did you approach the problem?" (500 words or less)
-
+First I read the problem carefully a few times to make sure I understood the expected input and output. After that I started developing a function that would scramble all chars in a string passed into it except for the first and last chars. After that I worked on a method that splits strings around punctuation marks . , ? ! ...etc, and scrambles each of the words seperately. When I was confident that worked I created the savePuncPos() method that tracks where the punctuation marks are placed. Lastly I made functions that check if there are abbrevs, or numbers in the input. Once the program was complete I tested it on all ascii input as well as interesting cases with mixes of punctuation, numbers and abbreviations until I was satisfied with the output.
 
 
 Question 2: "What was the most difficult aspect of the solution?" (500 words or less)
+The most difficult aspect of this problem was splitting the strings around the punctuation and rejoining the strings after scrambling them, while keeping track of where the punctuation was placed. I chose to use stringbuilders and parse through the original input char by char. Once the punctuation was detected I pushed the String to an Arraylist (because they can grow in size) and scrambled each string in the arraylist. After that I concatenated the scrambled strings together and inserted the punctuation marks in thier respective places.
