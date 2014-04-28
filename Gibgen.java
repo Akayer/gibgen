@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
+import java.util.StringTokenizer;
 
 public class Gibgen {
 	public static void main(String[] args)
@@ -11,14 +12,16 @@ public class Gibgen {
 		// Continously get tokens from System.in
 		while(in.hasNext())
 		{
-			input = in.next();
-			ArrayList<String> strArr = new ArrayList<String>();
-			
-			// Pass input string to giberize each token and output to console
-			System.out.print(giberize(input) + " ");
-
+			StringTokenizer st = new StringTokenizer(in.nextLine());
+			 
+			while (st.hasMoreElements()) {
+				// Pass input string to giberize each token and output to console
+				input = (String) st.nextElement();
+				System.out.print(giberize(input) + " ");
+			}
+			System.out.println();
 		}
-		}
+	}
 	
 	// Input: 	String from System.in
 	// Output: 	StringBuilder with all chars scrambled except beginning and ending
@@ -38,46 +41,52 @@ public class Gibgen {
 	    	  switch (c)
 	    	  {
 	      		case '.':  
-	      			savePuncPos('.', i, strList, indexOfPunc,punc,str);
+	      			savePuncPos(c, i, strList, indexOfPunc,punc,str);
 	      			break;
 	      		case '\'':  
-	      			savePuncPos('\'', i, strList, indexOfPunc,punc,str);
+	      			savePuncPos(c, i, strList, indexOfPunc,punc,str);
 	      			break;
 	      		case ',':  
-	      			savePuncPos(',', i, strList, indexOfPunc,punc,str);
+	      			savePuncPos(c, i, strList, indexOfPunc,punc,str);
 	      			break;
 	      		case '"':  
-	      			savePuncPos('"', i, strList, indexOfPunc,punc,str);
+	      			savePuncPos(c, i, strList, indexOfPunc,punc,str);
 	      			break;
 	      		case ';':  
-	      			savePuncPos(';', i, strList, indexOfPunc,punc,str);
+	      			savePuncPos(c, i, strList, indexOfPunc,punc,str);
 	      			break;
 	      		case ':':  
-	      			savePuncPos(':', i, strList, indexOfPunc,punc,str);
+	      			savePuncPos(c, i, strList, indexOfPunc,punc,str);
 	      			break;
 	      		case '?':  
-	      			savePuncPos('?', i, strList, indexOfPunc,punc,str);
+	      			savePuncPos(c, i, strList, indexOfPunc,punc,str);
 	      			break;
 	      		case '!':  
-	     			savePuncPos('!', i, strList, indexOfPunc,punc,str);
+	     			savePuncPos(c, i, strList, indexOfPunc,punc,str);
 	      			break;
 	      		case '[':  
-	      			savePuncPos(']', i, strList, indexOfPunc,punc,str);
+	      			savePuncPos(c, i, strList, indexOfPunc,punc,str);
 	      			break;
 	      		case ']':  
-	      			savePuncPos(']', i, strList, indexOfPunc,punc,str);
+	      			savePuncPos(c, i, strList, indexOfPunc,punc,str);
 	      			break;
 	      		case '{':  
-	      			savePuncPos('}', i, strList, indexOfPunc,punc,str);
+	      			savePuncPos(c, i, strList, indexOfPunc,punc,str);
 	      			break;
 	      		case '}':  
-	      			savePuncPos('}', i, strList, indexOfPunc,punc,str);
+	      			savePuncPos(c, i, strList, indexOfPunc,punc,str);
 	      			break;
 	      		case '(':  
-	     			savePuncPos('(', i, strList, indexOfPunc,punc,str);
+	     			savePuncPos(c, i, strList, indexOfPunc,punc,str);
 	      			break;
 	      		case ')':  
-	     			savePuncPos(')', i, strList, indexOfPunc,punc,str);
+	     			savePuncPos(c, i, strList, indexOfPunc,punc,str);
+	      			break;
+	      		case '-':  
+	     			savePuncPos(c, i, strList, indexOfPunc,punc,str);
+	      			break;
+	      		case (char)166:  
+	     			savePuncPos(c, i, strList, indexOfPunc,punc,str);
 	      			break;
 	      		// While punc isnt detected add chars to StringBuilder
 	      		default :
